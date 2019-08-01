@@ -1,0 +1,28 @@
+syntax = "proto3";
+package tutorial;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+
+message TreeData {
+    int32 Dim = 1;  // height of tree
+    int32 MinChildren=2;//number of slices
+    int32 MaxChildren=3;//number of subtrees at the root
+    int32 Height=4;
+    int32 Size=5;
+    double NSlices=6;
+    double NSubtree=7;
+    repeated Entry MyEntries=8;
+}
+message Rect {
+    repeated double P = 1;
+    repeated double Q= 2;
+}
+message Entry {
+    Rect Bb=1;
+    google.protobuf.Any Obj = 2;
+}
+message Thing{
+    repeated double Location=1;
+    string Name = 2;
+}
